@@ -12,9 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [
-        /*JSON.parse(localStorage.getItem("items"))*/
-      ],
+      items: JSON.parse(localStorage.getItem("items")),
       text: "",
     };
     this.handleChange = this.handleChange.bind(this);
@@ -41,7 +39,7 @@ class App extends React.Component {
       items: updatedItems,
       text: "",
     }));
-    //  localStorage.setItem("items", JSON.stringify(updatedItems));
+    localStorage.setItem("items", JSON.stringify(updatedItems));
   }
 
   deleteItem(key) {
@@ -50,7 +48,7 @@ class App extends React.Component {
       items: filteredItems,
       text: "",
     });
-    // localStorage.setItem("items", JSON.stringify(filteredItems));
+    localStorage.setItem("items", JSON.stringify(filteredItems));
   }
 
   render() {
