@@ -11,7 +11,12 @@ class Nadpis extends React.Component {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: JSON.parse(localStorage.getItem("items")), text: "" };
+    this.state = {
+      items: [
+        /*JSON.parse(localStorage.getItem("items"))*/
+      ],
+      text: "",
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
@@ -30,12 +35,13 @@ class App extends React.Component {
       text: this.state.text,
       id: Date.now(),
     };
+
     const updatedItems = this.state.items.concat(newItem);
     this.setState((state) => ({
       items: updatedItems,
       text: "",
     }));
-    localStorage.setItem("items", JSON.stringify(updatedItems));
+    //  localStorage.setItem("items", JSON.stringify(updatedItems));
   }
 
   deleteItem(key) {
@@ -44,7 +50,7 @@ class App extends React.Component {
       items: filteredItems,
       text: "",
     });
-    localStorage.setItem("items", JSON.stringify(filteredItems));
+    // localStorage.setItem("items", JSON.stringify(filteredItems));
   }
 
   render() {
